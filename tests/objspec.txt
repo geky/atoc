@@ -1,0 +1,8 @@
+This details the object file format for the atoc simulator.
+Files should end in '.ao' for convention.
+Must begin with the magic number 0x61 or 'a'.
+The second byte indicates how many bits of address there are.
+
+The file is simply repeated blocks of data to be stored in memory. Each block begins with an address indicating which address to start in big endian, and an address indicating how many bytes follow. Bytes passing the end of the address space is undefined, this simulator with simply quit.
+
+Not all data will be written, especially to memory mapped IO and RAM. However this is up to the implementation. The atoc simulator reserves addresses 0x00-0xff for memory mapped items.
